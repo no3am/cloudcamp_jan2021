@@ -19,10 +19,22 @@ variable "vm_size" {
   default = "Standard_B1s"
 }
 
-variable "vm_name" {}
-variable "admin_username" {}
+variable "vm_name" {
+  description = "(Required) The name of the Linux Virtual Machine. Changing this forces a new resource to be created."
+  type        = string
+}
+
+variable "admin_username" {
+  description = "(Optional) The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created."
+  type        = string
+}
+
 variable "vm_password" {
   description = ""
   type        = string
   default     = "Password1234!"
 }
+
+//variable "custom_data" {
+//  description = "(Optional) The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created."
+//}

@@ -13,14 +13,14 @@ resource "azurerm_linux_virtual_machine" "vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
+    sku       = "18.04-LTS"
     version   = "latest"
   }
 
   disable_password_authentication = true
 
   # TODO: get value from remote location
-  # custom_data = ""
+  custom_data = filebase64(pathexpand("/Users/naimsalameh/cloudcamp_jan2021/Assignments/Infrastructure/templates/cloudconfig.tpl"))
 
   admin_ssh_key {
     username   = var.admin_username

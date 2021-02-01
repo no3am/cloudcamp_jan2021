@@ -1,6 +1,0 @@
-resource_group_name      = "naim-test"
-location                 = "West Europe"
-account_replication_type = "LRS"
-account_tier             = "Standard"
-storage_account_name     = "cloudcampexample"
-container_name           = "mycontainer"

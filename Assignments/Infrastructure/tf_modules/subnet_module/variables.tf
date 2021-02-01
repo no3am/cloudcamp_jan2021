@@ -15,5 +15,4 @@ variable "vnet_name" {
 
 variable "address_prefixes" {
   description = "(Optional) The address prefixes to use for the subnet."
-  type        = list
 }

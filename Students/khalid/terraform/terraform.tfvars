@@ -1,5 +1,0 @@
-location          = "West US 2"
-ip_address        = "10.0.0.0/24"
-allocation_method = "Static"
-sku               = "Basic"
-rg_name_hard      = "resource_group_kwk"
