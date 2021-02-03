@@ -20,7 +20,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   disable_password_authentication = true
 
   # TODO: get value from remote location
-  custom_data = filebase64(pathexpand("/Users/naimsalameh/cloudcamp_jan2021/Assignments/Infrastructure/templates/cloudconfig.tpl"))
+  custom_data = var.custom_data
 
   admin_ssh_key {
     username   = var.admin_username

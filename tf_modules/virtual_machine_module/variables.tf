@@ -32,9 +32,8 @@ variable "admin_username" {
 variable "vm_password" {
   description = ""
   type        = string
-  default     = "Password1234!"
 }
 
-//variable "custom_data" {
-//  description = "(Optional) The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created."
-//}
+variable "custom_data" {
+  description = "(Optional) The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created."
+}
