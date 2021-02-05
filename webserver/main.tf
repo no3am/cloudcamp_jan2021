@@ -1,5 +1,5 @@
 provider "azurerm" {
-  version = "=2.41.0"
+  version = "=2.46.0"
   features {}
 }
 
@@ -36,21 +36,20 @@ module "nic" {
   rg_name        = module.rg.rg_name
   location       = module.rg.rg_location
   subnet_id      = module.subnet.subnet_id
-  ip_config_name = "mynic"
+  ip_config_name = var.ip_config_name
 }
 
 module "loadbalancer" {
-  source       = "../tf_modules/loadbalancer_module"
-  rg_name      = module.rg.rg_name
-  location     = module.rg.rg_location
-  lb_name      = var.lb_name
-  pip_name     = module.public_ip.ip_name
-  pip_id       = module.public_ip.ip_id
-  backend_name = var.backend_name
-  probe_name   = var.probe_name
-  probe_port   = var.probe_port
-//  vnet_id      = module.subnet.subnet_id
-//  nic_ip       = module.nic.nic_private_ip
+  source         = "../tf_modules/loadbalancer_module"
+  rg_name        = module.rg.rg_name
+  location       = module.rg.rg_location
+  lb_name        = var.lb_name
+  pip_name       = module.public_ip.ip_name
+  pip_id         = module.public_ip.ip_id
+  probe_name     = var.probe_name
+  probe_port     = var.probe_port
+  ip_config_name = var.ip_config_name
+  nic_id         = module.nic.nic_id
 }
 
 module "nsg" {

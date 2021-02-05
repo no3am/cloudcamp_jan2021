@@ -16,5 +16,5 @@ variable "public_ip_name" {
 variable "allocation_method" {
   description = "(Required) Defines the allocation method for this IP address. Possible values are Static or Dynamic."
   type        = string
-  default     = "Dynamic"
+  default     = "Static"
 }

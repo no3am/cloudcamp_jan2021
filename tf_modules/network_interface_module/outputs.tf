@@ -8,6 +8,6 @@ output "nic_name" {
   value       = azurerm_network_interface.nic.name
 }
 
-output "nic_private_ip" {
-  value = azurerm_network_interface.nic.private_ip_address
+output "ip_config_name" {
+  value = azurerm_network_interface.nic.ip_configuration
 }

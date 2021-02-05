@@ -23,11 +23,6 @@ variable "pip_id" {
   type        = string
 }
 
-variable "backend_name" {
-  description = "(Required) Specifies the name of the Backend Address Pool."
-  type        = string
-}
-
 variable "probe_name" {
   description = "(Required) Specifies the name of the Probe."
   type        = string
@@ -38,11 +33,12 @@ variable "probe_port" {
   type        = number
 }
 
-//variable "vnet_id" {
-//  description = "(Required) The address space that is used the virtual network. You can supply more than one address space."
-//  type        = list
-//}
-//
-//variable "nic_ip" {
-//  description = "(Required) The IP address pre-allocated for this Backend Address with in the Virtual Network of virtual_network_id."
-//}
+variable "ip_config_name" {
+  description = "(Required) The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created."
+  type        = string
+}
+
+variable "nic_id" {
+  description = "(Required) The ID of the NIC"
+  type        = string
+}

@@ -22,11 +22,6 @@ variable "lb_name" {
   type        = string
 }
 
-variable "backend_name" {
-  description = "(Required) Specifies the name of the Backend Address Pool."
-  type        = string
-}
-
 variable "probe_name" {
   description = "(Required) Specifies the name of the Probe."
   type        = string
@@ -35,4 +30,9 @@ variable "probe_name" {
 variable "probe_port" {
   description = "(Required) Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive."
   type        = number
+}
+
+variable "ip_config_name" {
+  description = "(Required) A name used for this IP Configuration."
+  type        = string
 }
