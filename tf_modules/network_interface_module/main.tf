@@ -7,6 +7,5 @@ resource "azurerm_network_interface" "nic" {
     name                          = var.ip_config_name
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = var.p_ip_address_allocation
-    public_ip_address_id          = var.public_ip_id
   }
 }

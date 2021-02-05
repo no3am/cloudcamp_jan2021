@@ -37,7 +37,20 @@ module "nic" {
   location       = module.rg.rg_location
   subnet_id      = module.subnet.subnet_id
   ip_config_name = "mynic"
-  public_ip_id   = module.public_ip.ip_id
+}
+
+module "loadbalancer" {
+  source       = "../tf_modules/loadbalancer_module"
+  rg_name      = module.rg.rg_name
+  location     = module.rg.rg_location
+  lb_name      = var.lb_name
+  pip_name     = module.public_ip.ip_name
+  pip_id       = module.public_ip.ip_id
+  backend_name = var.backend_name
+  probe_name   = var.probe_name
+  probe_port   = var.probe_port
+//  vnet_id      = module.subnet.subnet_id
+//  nic_ip       = module.nic.nic_private_ip
 }
 
 module "nsg" {
