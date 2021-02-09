@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-python
+  labels:
+    app: server-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-python
+  template:
+    metadata:
+      labels:
+        app: server-python
+    spec:
+      containers:
+      - name: server
+        image: no3am/python_app_server:1.1
+        ports:
+        - containerPort: 8080
