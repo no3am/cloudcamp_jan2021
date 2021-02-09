@@ -8,17 +8,18 @@ variable "rg_name" {
   type        = string
 }
 
-variable "cidr_address" {
-  description = "(Required) The address space that is used the virtual network. You can supply more than one address space."
-  type        = list
-}
-
-variable "address_prefixes" {
-  description = "(Optional) The address prefixes to use for the subnet."
-}
-
 variable "lb_name" {
   description = "(Required) Specifies the name of the Load Balancer."
+  type        = string
+}
+
+variable "pip_name" {
+  description = "(Required) Specifies the name of the frontend ip configuration."
+  type        = string
+}
+
+variable "pip_id" {
+  description = "(Optional) The ID of a Public IP Address which should be associated with the Load Balancer."
   type        = string
 }
 
@@ -33,6 +34,11 @@ variable "probe_port" {
 }
 
 variable "ip_config_name" {
-  description = "(Required) A name used for this IP Configuration."
+  description = "(Required) The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created."
+  type        = string
+}
+
+variable "nic_id" {
+  description = "(Required) The ID of the NIC"
   type        = string
 }

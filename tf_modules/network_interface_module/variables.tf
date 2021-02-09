@@ -23,8 +23,3 @@ variable "p_ip_address_allocation" {
   type        = string
   default     = "Dynamic"
 }
-
-variable "public_ip_id" {
-  description = "(Optional) Reference to a Public IP Address to associate with this NIC"
-  type        = string
-}
