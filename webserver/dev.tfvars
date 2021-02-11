@@ -6,3 +6,4 @@ lb_name          = "web-public-lb"
 probe_name       = "webprobe"
 probe_port       = 80
 ip_config_name   = "mynic"
+dns_zone_name    = "kingnaim.com"

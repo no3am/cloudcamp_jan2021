@@ -13,7 +13,7 @@ variable "dns_a_record_name" {
   type        = string
 }
 
-variable "a_record" {
-  description = "(Optional) List of IPv4 Addresses. Conflicts with target_resource_id."
+variable "record" {
+  description = "(Required) List of IPv4 Addresses."
   type        = list
 }
