@@ -36,3 +36,8 @@ variable "ip_config_name" {
   description = "(Required) A name used for this IP Configuration."
   type        = string
 }
+
+variable "dns_zone_name" {
+  description = "(Required) The name of the DNS Zone. Must be a valid domain name."
+  type        = string
+}

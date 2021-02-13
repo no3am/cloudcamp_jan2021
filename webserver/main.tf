@@ -81,3 +81,17 @@ module "vm" {
   vm_password    = random_password.vm_password.result
   custom_data    = filebase64(pathexpand("/Users/naimsalameh/cloudcamp_jan2021/cloud_init_templates/cloudconfig_httpd.tpl"))
 }
+
+module "dns_zone" {
+  source        = "../tf_modules/dns_zone_module"
+  rg_name       = module.rg.rg_name
+  dns_zone_name = var.dns_zone_name
+}
+
+module "dns_a_record" {
+  source             = "../tf_modules/dns_a_record"
+  rg_name            = module.rg.rg_name
+  dns_zone_name      = module.dns_zone.dns_zone_name
+  dns_a_record_name  = "cloudcamp"
+  a_record           = [module.public_ip.ip_address]
+}

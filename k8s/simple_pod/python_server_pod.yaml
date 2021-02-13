@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python-server
+  labels:
+    role: production
+    stack: web
+spec:
+  containers:
+    - name: python-server
+      image: no3am/python_app_server:1.1
+      ports:
+        - name: python-server
+          containerPort: 80
+          protocol: TCP

@@ -29,8 +29,8 @@ resource "azurerm_lb_probe" "lb_prob" {
   request_path        = "/index.html"
 }
 
-//resource "azurerm_network_interface_nat_rule_association" "lb_nat_association" {
-//  ip_configuration_name = var.ip_config_name
-//  nat_rule_id           = azurerm_lb_nat_rule.lb_nat_rule.id
-//  network_interface_id = var.nic_id
-//}
+resource "azurerm_network_interface_nat_rule_association" "lb_nat_association" {
+  ip_configuration_name = var.ip_config_name
+  nat_rule_id           = azurerm_lb_nat_rule.lb_nat_rule.id
+  network_interface_id = var.nic_id
+}
