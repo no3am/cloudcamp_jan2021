@@ -1,0 +1,15 @@
+<div class="content">
+    <p id="date"></p>
+</div>
+<script>
+
+function print_date(){
+  var n,y,n,d
+  n =  new Date();
+  y = n.getFullYear();
+  m = n.getMonth() + 1;
+  d = n.getDate();
+  document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+}
+print_date()
+</script>
