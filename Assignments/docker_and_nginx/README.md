@@ -12,9 +12,7 @@
 - http://localhost:5000
 
 # test app health:
--  you can run app_health_test.py locally from base dir:
--     source texelenv/bin/activate
--     python app_health/app_health_test.py
+Todo: create a virtualenv with reqs file and run the health_check.py
 
 # used references
 - http://pjdietz.com/2016/08/28/nginx-in-docker-without-root.html
