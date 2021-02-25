@@ -7,12 +7,12 @@ while True:
     host = socket.gethostname()
     date = time.strftime("%Y-%m-%d %H:%M:%S")
 
-    now = str(date)
+    NOW = str(date)
 
     # Open the file named date in append mode
     # Append the output of hostname and time
     f = open("date.out", "a")
-    f.write(now + "\n")
+    f.write(NOW + "\n")
     f.write(host + "\n")
     f.close()
 
