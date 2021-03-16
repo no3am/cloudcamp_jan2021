@@ -2,7 +2,6 @@
 var app = express();
 var mysql = require("mysql");
 var con = mysql.createConnection({ host: process.env.MYSQL_HOST, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD, database: process.env.MYSQL_DATABASE});
-//var con = mysql.createConnection({ host: 'localhost', user: 'admin', password: 'password', database: 'db_example'});
 // mysql code
 
 con.connect(function(err){
@@ -22,7 +21,7 @@ app.get('/greeting', function (req, res) {
   con.query('INSERT INTO visits (ts) values (?)', Date.now(),function(err, dbRes) {
     if(err) throw err;
     res.send('Hello World! You are visitor number '+dbRes.insertId);
-  });
+  })
 });
 
 

@@ -1,37 +1,14 @@
-﻿# K8s Lab : Helm / Config maps and Services
+﻿# K8s Lab : Interacting with AKS and Ingress / Load Balancer
 
-In this lab we are going to deploy a service of Backend talking to a NoSql Server.
-The code for the backend is written in NodeJs .
-The DB layer will be MySql Db.
+In this lab we are going to deploy AKS cluster with Nginx Ingress Controller.  we will deploy a simple web application and then configure load balancing for that application using the Ingress resource.
 
-You are requested to create all the resources for the lab as HELM Files.
+You are requested to create all the lab resources using Scripts /  Azure CLI / Shell / Terraform or any other automation , not via the portal.
+(Recommended : Azure CLI)
 (Recommended : place your code in GitHub repo)
 
+## 1. Deploy AKS Cluster and Ingress Controller
 
-## 1. Deploy the MySql Helm chart 
-
-1. Clone Bitnami Helm charts repositories [here](https://github.com/bitnami/charts).
-
-2. Copy the MySql Chart to your Folder under helm\charts\mysql
-
-3. Cd to helm\charts\mysql and run the following command to bring all the dependencies for this chart :
-
- ```
-    $ helm dependency update
- ```
-
-4. Create new Namespace for mySql Called "mysql" and install the chart in it
-
- ```
-    $ kubectl create ns mysql
-    => (change you context to this namespace , hint: https://kubernetes.io/docs/reference/kubectl/cheatsheet/ ) <-=
-
-    $ helm install mysql . 
- ```
-
-5. Follow the instructions on how to set the master password  :
-
-
+1. Follow the [installation](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az_aks_create) instructions to deploy the AKS using CLI Command.
 
 The cluster should have the following parameters : 
 
@@ -40,6 +17,22 @@ The cluster should have the following parameters :
 - Location : East US
 - Number of Nodes : 2
 - VM Type : Standard_D8_v3
+- enable managed identity
+- k8s version : 1.18.14
+
+example : 
+
+```
+echo "Create AKS"
+az aks create \
+  --resource-group <your_aks_rg> \
+  --name <your_aks_name> \
+  --node-count <count> \
+  --kubernetes-version <version> \
+  --enable-managed-identity \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
+```
 
 2. Create Nginx-Ingress Controller using the following parameters:
 
