@@ -12,8 +12,8 @@ You are requested to create all the lab resources using Scripts /  Azure CLI / S
 
 The cluster should have the following parameters : 
 
-- AKS Name : <your-name>-lab-aks
-- Resource Group : <your-name>-lab-rg
+- AKS Name : (your-name)-lab-aks
+- Resource Group : (your-name)-lab-rg
 - Location : East US
 - Number of Nodes : 2
 - VM Type : Standard_D8_v3
