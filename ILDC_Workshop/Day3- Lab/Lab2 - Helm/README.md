@@ -1,14 +1,37 @@
-﻿# K8s Lab : Interacting with AKS and Ingress / Load Balancer
+﻿# K8s Lab : Helm / Config maps and Services
 
-In this lab we are going to deploy AKS cluster with Nginx Ingress Controller.  we will deploy a simple web application and then configure load balancing for that application using the Ingress resource.
+In this lab we are going to deploy a service of Backend talking to a NoSql Server.
+The code for the backend is written in NodeJs .
+The DB layer will be MySql Db.
 
-You are requested to create all the lab resources using Scripts /  Azure CLI / Shell / Terraform or any other automation , not via the portal.
-(Recommended : Azure CLI)
+You are requested to create all the resources for the lab as HELM Files.
 (Recommended : place your code in GitHub repo)
 
-## 1. Deploy AKS Cluster and Ingress Controller
 
-1. Follow the [installation](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) instructions to deploy the AKS using CLI Command.
+## 1. Deploy the MySql Helm chart 
+
+1. Clone Bitnami Helm charts repositories [here](https://github.com/bitnami/charts).
+
+2. Copy the MySql Chart to your Folder under helm\charts\mysql
+
+3. Cd to helm\charts\mysql and run the following command to bring all the dependencies for this chart :
+
+ ```
+    $ helm dependency update
+ ```
+
+4. Create new Namespace for mySql Called "mysql" and install the chart in it
+
+ ```
+    $ kubectl create ns mysql
+    => (change you context to this namespace , hint: https://kubernetes.io/docs/reference/kubectl/cheatsheet/ ) <-=
+
+    $ helm install mysql . 
+ ```
+
+5. Follow the instructions on how to set the master password  :
+
+
 
 The cluster should have the following parameters : 
 
