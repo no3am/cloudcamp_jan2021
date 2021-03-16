@@ -91,3 +91,25 @@ certificate and the --resolve option to set the Host header of a request with ``
     Server name: tea-7cd44fcb4d-xfw2x
     ...
     ```
+
+
+
+## 5. Appendix : deploy with helm chart and change NSG Rules
+
+1. git clone the chart 
+https://github.com/nginxinc/kubernetes-ingress/tree/master/deployments/helm-chart
+
+2. change values yaml : 
+
+```
+controller:
+  service:
+    annotations:
+      service.beta.kubernetes.io/azure-allowed-service-tags: "AzureMediaServices,AzureFrontDoor.Backend,AzureFrontDoor.FirstParty,AzureDevOps"
+    loadBalancerSourceRanges: ["84.229.3.241/32"]
+```
+
+3. apply and inspect the NSG Rules
+
+
+
