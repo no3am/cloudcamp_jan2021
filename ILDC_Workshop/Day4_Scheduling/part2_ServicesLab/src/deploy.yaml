@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: visitor
+  name: visitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: visitor
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: visitor
+    spec:
+      containers:
+      - name: visitor-app
+        image: vicorpacr.azurecr.io/tshaiman/visitor-app:1.1
+        imagePullPolicy: IfNotPresent
+        env:
+          - name : MYSQL_HOST
+            value: database.mysql.svc.cluster.local
+          - name: MYSQL_USER
+            value: guest
+          - name: MYSQL_PASSWORD
+            value: password
+          - name: MYSQL_DATABASE
+            value: visits
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visitor-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: visitor
