@@ -1,5 +1,6 @@
 this is a conflict file
 it has a few lines
+here we add something
 this is an example of a line
 and the last line will be
 end of file
