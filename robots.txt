@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 add last line for this domo
+=======
+end of line
+>>>>>>> conflict
